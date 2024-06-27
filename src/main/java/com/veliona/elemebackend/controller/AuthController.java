@@ -13,15 +13,13 @@ import static com.veliona.elemebackend.utils.JwtUtil.generateToken;
 public class AuthController {
 
     @Autowired
-    private UserService userService;
+    private UserService userServiceImpl;
 
-    private final String SECRET_KEY = "your_secret_key";
-
-    @PostMapping("/login")
-    public String login(@RequestParam String uact, @RequestParam String upwd) {
-        String msg = userService.login(uact, upwd);
+    @RequestMapping("/login")
+    public String login(@RequestParam("uaccount") String uact, @RequestParam("upassword") String upwd) {
+        String msg = userServiceImpl.login(uact, upwd);
         if ("success".equals(msg)) {
-            String token = generateToken(uact);
+            Object token = generateToken(uact);
             JsonResponse json = new JsonResponse(true, token, "Login success");
             return json.toString();
         } else {
@@ -30,9 +28,9 @@ public class AuthController {
         }
     }
 
-    @PostMapping("/register")
+    @RequestMapping("/register")
     public String register(@RequestBody User user) {
-        String msg = userService.register(user);
+        String msg = userServiceImpl.register(user);
         if ("success".equals(msg)) {
             JsonResponse json = new JsonResponse(true, "Registration success");
             return json.toString();
@@ -40,6 +38,7 @@ public class AuthController {
             JsonResponse json = new JsonResponse(false, "Registration failed");
             return json.toString();
         }
+
     }
 
 

@@ -14,11 +14,11 @@
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        userID, userAccount, userPassword, userName, userAvatar, userStatus
+        userID, userPassword, userName, userAvatar, userStatus, userAccount
     </sql>
     <select id="searchByUserAccount" resultType="com.veliona.elemebackend.entity.User">
         SELECT *
-        FROM users
+        FROM user
         WHERE userAccount = #{userAccount}
     </select>
 

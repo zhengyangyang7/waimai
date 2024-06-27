@@ -10,14 +10,5 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-    @Autowired
-    UserServiceImpl userService;
-    @RequestMapping("/login")
-    public void login (@RequestParam String uact, @RequestParam String upwd) {
-        userService.login(uact, upwd);
-    }
-    @RequestMapping("register")
-    public void register (@RequestBody User user) {
-        userService.register(user);
-    }
+
 }

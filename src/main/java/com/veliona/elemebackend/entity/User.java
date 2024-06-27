@@ -12,14 +12,18 @@ import lombok.Setter;
 @Data
 @TableName("user")
 public class User {
-    @TableId(value = "userID")
+    @TableId("userID")
     private String userID;
 
-    @TableField(select = false)
+    @TableField("userAccount")
     private String userAccount;
+    @TableField("userPassword")
     private String userPassword;
+    @TableField("userName")
     private String userName;
+    @TableField("userAvatar")
     private String userAvatar;
+    @TableField("userStatus")
     private Boolean userStatus; //true for exist
 
 

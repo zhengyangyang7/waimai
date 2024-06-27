@@ -1,6 +1,9 @@
 package com.veliona.elemebackend.utils;
 import com.alibaba.fastjson2.JSON;
-
+import lombok.Getter;
+import lombok.Setter;
+@Setter
+@Getter
 public class JsonResponse {
     private Boolean result;
     private String errCode;
@@ -31,7 +34,7 @@ public class JsonResponse {
         this.errCode = errCode;
         this.msg = msg;
     }
-    
+
     public String toString() {
         return JSON.toJSONString(this);
     }
