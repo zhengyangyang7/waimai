@@ -1,3 +1,5 @@
+CREATE DATABASE  IF NOT EXISTS `elm` /*!40100 DEFAULT CHARACTER SET utf8 */;
+USE `elm`;
 -- MySQL dump 10.13  Distrib 8.0.37, for macos14.4 (arm64)
 --
 -- Host: 127.0.0.1    Database: elm
